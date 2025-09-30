@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dila Kemer - CV</title>
+  <title>Dila Kemer - CV & Portfolio</title>
   <style>
-    /* Genel stil */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
@@ -13,7 +12,7 @@
       padding: 0;
       background: #f0e6ff;
       color: #333;
-      scroll-behavior: smooth; /* Menü tıklayınca yumuşak kaydırma */
+      scroll-behavior: smooth;
     }
 
     /* Menü */
@@ -38,10 +37,21 @@
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 4px;
     }
-    nav ul li a:hover {
-      color: #d6b3ff;
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background: #d6b3ff;
+      transition: width 0.3s;
+    }
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     /* Container */
@@ -52,11 +62,6 @@
       background: #fff;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(100, 50, 150, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(100, 50, 150, 0.5);
     }
 
     h1, h2 {
@@ -95,6 +100,63 @@
       margin-bottom: 50px;
     }
 
+    /* Proje kartları */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: #f9f5ff;
+      border: 2px solid #e2ccff;
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(100, 50, 150, 0.3);
+    }
+    .project-card h3 {
+      margin-top: 0;
+      color: #4b0066;
+    }
+
+    /* İletişim formu */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    button {
+      background: #6a0dad;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #4b0066;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #6a0dad;
+      color: #fff;
+      margin-top: 40px;
+    }
+
     @media (max-width: 600px) {
       nav ul {
         flex-direction: column;
@@ -106,9 +168,6 @@
       .container {
         margin: 20px;
         padding: 15px;
-      }
-      body {
-        font-size: 14px;
       }
     }
   </style>
@@ -122,6 +181,7 @@
       <li><a href="#egitim">Eğitim</a></li>
       <li><a href="#sertifikalar">Sertifikalar</a></li>
       <li><a href="#beceriler">Beceriler</a></li>
+      <li><a href="#projeler">Projeler</a></li>
       <li><a href="#iletisim">İletişim</a></li>
     </ul>
   </nav>
@@ -171,7 +231,42 @@
         <li>OOP</li>
       </ul>
     </section>
+
+    <section id="projeler">
+      <h2>📂 Projeler</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Mobil Uygulama</h3>
+          <p>Kotlin ile geliştirdiğim basit bir Android uygulaması.</p>
+          <a href="https://github.com/Dilakemer" target="_blank">GitHub’da Görüntüle</a>
+        </div>
+        <div class="project-card">
+          <h3>SQL Chatbot</h3>
+          <p>Doğal dil sorularını SQL sorgusuna dönüştüren chatbot.</p>
+          <a href="https://github.com/Dilakemer" target="_blank">GitHub’da Görüntüle</a>
+        </div>
+        <div class="project-card">
+          <h3>Veri Analizi</h3>
+          <p>Python ile veri görselleştirme ve analiz çalışmaları.</p>
+          <a href="https://github.com/Dilakemer" target="_blank">GitHub’da Görüntüle</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="iletisim">
+      <h2>📩 İletişim</h2>
+      <form>
+        <input type="text" placeholder="Adınız" required>
+        <input type="email" placeholder="E-posta" required>
+        <textarea rows="5" placeholder="Mesajınız"></textarea>
+        <button type="submit">Gönder</button>
+      </form>
+    </section>
   </div>
+
+  <footer>
+    <p>© 2025 Dila Kemer | Tüm Hakları Saklıdır</p>
+  </footer>
 
 </body>
 </html>
